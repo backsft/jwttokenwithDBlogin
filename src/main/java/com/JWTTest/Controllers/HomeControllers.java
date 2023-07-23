@@ -1,15 +1,13 @@
 package com.JWTTest.Controllers;
 
 import java.security.Principal;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.JWTTest.MyEntities.Users;
-import com.JWTTest.MyServices.UserService;
+import com.JWTTest.MyServices.UserServiceArea;
 
 @RestController
 @RequestMapping("/home")
@@ -17,15 +15,15 @@ public class HomeControllers {
 	
 	@Autowired
 	
-	UserService userService;
+	UserServiceArea userServiceArea;
 	
 	
 	@GetMapping("/users")
 	
-	public List<Users> getUser() {
+	public String getMessege() {
 		
 		System.out.println("gettomg users");
-		return this.userService.getUsers();
+		return this.userServiceArea.myMessege();
 	}
 	
 @GetMapping("/current-user")
@@ -36,6 +34,7 @@ public class HomeControllers {
 		return principal.getName();
 	}
 	
+
 	
 
 }
